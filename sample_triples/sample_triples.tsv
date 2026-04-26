@@ -1,0 +1,62 @@
+# Sample triples from the SNOMED CT-aligned clinical KG.
+# Tab-separated. Header below is for readability only.
+# subject_cui	subject_label	relation	object_cui	object_label	source
+#
+# This is an ILLUSTRATIVE subset of the ~180,000 edges in the full KG.
+# It includes the triples returned for the worked example in paper §3.4
+# plus representative coverage of all 13 relation types and all 6 entity
+# types. Full SNOMED CT concept descriptions are not redistributed here;
+# CUIs can be mapped to full descriptions via UMLS (https://uts.nlm.nih.gov).
+
+subject_cui	subject_label	relation	object_cui	object_label	source
+C0025598	Metformin	treats	C0011860	Type 2 Diabetes	ADA_2024
+C0025598	Metformin	contraindicatedWith	C0035078	Renal Failure	ADA_2024
+C0025598	Metformin	hasSideEffect	C0027497	Nausea	SNOMED_CT
+C0025598	Metformin	hasSideEffect	C0011991	Diarrhea	SNOMED_CT
+C0025598	Metformin	interactsWith	C0008838	Cisplatin	SNOMED_CT
+C0011860	Type 2 Diabetes	comorbidWith	C0022661	Chronic Kidney Disease	SNOMED_CT
+C0011860	Type 2 Diabetes	comorbidWith	C0020538	Hypertension	SNOMED_CT
+C0011860	Type 2 Diabetes	hasRiskFactor	C0028754	Obesity	SNOMED_CT
+C0011860	Type 2 Diabetes	causes	C0011884	Diabetic Retinopathy	SNOMED_CT
+C0022661	Chronic Kidney Disease	hasRiskFactor	C0035078	Renal Failure	SNOMED_CT
+C0019018	HbA1c	monitoredBy	C0011860	Type 2 Diabetes	ADA_2024
+C0019018	HbA1c	diagnosedBy	C0011860	Type 2 Diabetes	ADA_2024
+C0202155	Serum Creatinine	monitoredBy	C0022661	Chronic Kidney Disease	SNOMED_CT
+C0202155	Serum Creatinine	diagnosedBy	C0035078	Renal Failure	SNOMED_CT
+NULL	ADA Guidelines 2024	recommends	C0025598	Metformin	ADA_2024
+NULL	ADA Guidelines 2024	recommends	C0019018	HbA1c	ADA_2024
+NULL	WHO Hypertension Guideline	recommends	C0024676	Lisinopril	WHO_2023
+NULL	AHA Lipid Guideline 2023	recommends	C0073980	Atorvastatin	AHA_2023
+C0024676	Lisinopril	treats	C0020538	Hypertension	WHO_2023
+C0024676	Lisinopril	contraindicatedWith	C0033578	Pregnancy	WHO_2023
+C0024676	Lisinopril	hasSideEffect	C0010200	Cough	SNOMED_CT
+C0024676	Lisinopril	interactsWith	C0032821	Potassium	SNOMED_CT
+C0073980	Atorvastatin	treats	C0020443	Hypercholesterolemia	AHA_2023
+C0073980	Atorvastatin	hasSideEffect	C0026848	Myalgia	SNOMED_CT
+C0073980	Atorvastatin	interactsWith	C0040207	Erythromycin	SNOMED_CT
+C0020443	Hypercholesterolemia	hasRiskFactor	C0007222	Cardiovascular Disease	AHA_2023
+C0020538	Hypertension	hasRiskFactor	C0038454	Stroke	WHO_2023
+C0020538	Hypertension	causes	C0007194	Hypertrophic Cardiomyopathy	SNOMED_CT
+C0021107	Insulin therapy	indicatedFor	C0011860	Type 2 Diabetes	ADA_2024
+C0021107	Insulin therapy	indicatedFor	C0011854	Type 1 Diabetes	ADA_2024
+C0011860	Type 2 Diabetes	partOf	C0011849	Diabetes Mellitus	SNOMED_CT
+C0011854	Type 1 Diabetes	partOf	C0011849	Diabetes Mellitus	SNOMED_CT
+C0035078	Renal Failure	findingSite	C0022646	Kidney	SNOMED_CT
+C0011884	Diabetic Retinopathy	findingSite	C0035298	Retina	SNOMED_CT
+C0007222	Cardiovascular Disease	findingSite	C0018787	Heart	SNOMED_CT
+C0004057	Aspirin	treats	C0018681	Headache	SNOMED_CT
+C0004057	Aspirin	contraindicatedWith	C0041296	Tuberculosis	SNOMED_CT
+C0004057	Aspirin	hasSideEffect	C0041834	Erythema	SNOMED_CT
+C0004057	Aspirin	interactsWith	C0043031	Warfarin	SNOMED_CT
+C0043031	Warfarin	treats	C0040053	Thrombosis	SNOMED_CT
+C0043031	Warfarin	contraindicatedWith	C0033578	Pregnancy	SNOMED_CT
+C0282574	Mammography	indicatedFor	C0006142	Breast Cancer	CDC_2024
+C0040405	Tomography	indicatedFor	C0027651	Neoplasm	SNOMED_CT
+NULL	CDC Vaccine Schedule 2024	recommends	C0042196	Vaccination	CDC_2024
+C0042196	Vaccination	indicatedFor	C0021400	Influenza	CDC_2024
+C0009264	Codeine	treats	C0030193	Pain	SNOMED_CT
+C0009264	Codeine	contraindicatedWith	C0024117	Chronic Obstructive Pulmonary Disease	SNOMED_CT
+C0009264	Codeine	interactsWith	C0001962	Alcohol	SNOMED_CT
+C0030193	Pain	causes	C0085631	Anxiety	SNOMED_CT
+C0028754	Obesity	hasRiskFactor	C0011860	Type 2 Diabetes	WHO_2023
+C0028754	Obesity	hasRiskFactor	C0007222	Cardiovascular Disease	WHO_2023

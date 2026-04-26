@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "description": "Fixed schema for the SNOMED CT-aligned clinical KG used in the KGC 2026 poster paper.",
+  "entity_types": [
+    {
+      "name": "Disease",
+      "snomed_semantic_category": "Disease, Disorder",
+      "example": {"cui": "C0011860", "label": "Type 2 Diabetes"}
+    },
+    {
+      "name": "Medication",
+      "snomed_semantic_category": "Pharmacologic Substance",
+      "example": {"cui": "C0025598", "label": "Metformin"}
+    },
+    {
+      "name": "Symptom",
+      "snomed_semantic_category": "Sign or Symptom",
+      "example": {"cui": "C0027497", "label": "Nausea"}
+    },
+    {
+      "name": "LabTest",
+      "snomed_semantic_category": "Laboratory Procedure",
+      "example": {"cui": "C0019018", "label": "HbA1c"}
+    },
+    {
+      "name": "Procedure",
+      "snomed_semantic_category": "Therapeutic Procedure",
+      "example": {"cui": "C0021107", "label": "Insulin therapy"}
+    },
+    {
+      "name": "Guideline",
+      "snomed_semantic_category": "Health Care Activity",
+      "example": {"cui": null, "label": "ADA Guidelines 2024"}
+    }
+  ],
+  "relation_types": [
+    {"name": "treats",               "domain": "Medication", "range": "Disease",            "description": "Therapeutic indication"},
+    {"name": "causes",               "domain": "Disease",    "range": "Disease|Symptom",    "description": "Causal relationship"},
+    {"name": "contraindicatedWith",  "domain": "Medication", "range": "Disease",            "description": "Contraindication"},
+    {"name": "diagnosedBy",          "domain": "LabTest",    "range": "Disease",            "description": "Diagnostic relationship"},
+    {"name": "hasSideEffect",        "domain": "Medication", "range": "Symptom",            "description": "Adverse effect"},
+    {"name": "interactsWith",        "domain": "Medication", "range": "Medication",         "description": "Drug-drug interaction"},
+    {"name": "indicatedFor",         "domain": "Procedure",  "range": "Disease",            "description": "Procedural indication"},
+    {"name": "partOf",               "domain": "Disease",    "range": "Disease",            "description": "Hierarchical containment"},
+    {"name": "findingSite",          "domain": "Disease",    "range": "Anatomy",            "description": "Anatomical location"},
+    {"name": "hasRiskFactor",        "domain": "Disease",    "range": "Disease|Condition",  "description": "Risk factor relationship"},
+    {"name": "monitoredBy",          "domain": "LabTest",    "range": "Disease",            "description": "Disease monitoring"},
+    {"name": "comorbidWith",         "domain": "Disease",    "range": "Disease",            "description": "Co-occurring condition"},
+    {"name": "recommends",           "domain": "Guideline",  "range": "Medication|Procedure", "description": "Guideline recommendation"}
+  ],
+  "provenance_sources": [
+    "SNOMED_CT",
+    "ICD-10",
+    "EHR_template",
+    "ADA_2024",
+    "WHO_2023",
+    "CDC_2024",
+    "AHA_2023"
+  ],
+  "out_of_scope": [
+    "temporal relations (precedes, follows, durationOf)",
+    "dose-response or dose-dependent contraindications",
+    "drug-drug interaction severity grading",
+    "patient-attribute-conditioned edges (age, pregnancy status)"
+  ]
+}
